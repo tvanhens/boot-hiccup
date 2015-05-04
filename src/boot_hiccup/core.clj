@@ -6,11 +6,11 @@
             [hiccup.core     :as hiccup]
             [hiccup.page     :as page]))
 
-(defn hiccup-ext->html-ext
+(defn- hiccup-ext->html-ext
   [path]
   (str/replace path #".hiccup.edn$" ".html"))
 
-(defn compile-template!
+(defn- compile-template!
   [in-file out-file]
   (doto out-file
     io/make-parents

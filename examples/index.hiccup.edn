@@ -3,10 +3,16 @@
   [:title "Welcome"]]
  [:body
   [:h1 "Lets prototype some stuff"]
-  [:h2 "lets go surfing"]
-  [:p "me my oh my"]
   [:ul
-   (for [item (range 10)]
+   ;; Using core clojure functions is OK.
+   ;; Good for filling out demo data in a template.
+   (for [item (range 5)]
      [:li item])]
-  [:script {:type "text/javascript"
-            :src  "main.js"}]]]
+
+  ;; Also good for environment conditionals:
+
+  ;; These can be used to switch between production and development versions of
+  ;; css and js scripts.
+  (when (#{"local"} (System/getenv "PROJECT_ENV"))
+    [:h2 "Only visible for local development"])
+  ]]
