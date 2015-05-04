@@ -1,0 +1,12 @@
+[:html
+ [:head
+  [:title "Welcome"]]
+ [:body
+  [:h1 "Lets prototype some stuff"]
+  [:h2 "lets go surfing"]
+  [:p "me my oh my"]
+  [:ul
+   (for [item (range 10)]
+     [:li item])]
+  [:script {:type "text/javascript"
+            :src  "main.js"}]]]
