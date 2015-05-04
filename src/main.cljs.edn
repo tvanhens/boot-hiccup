@@ -1,3 +1,0 @@
-{:require  [app.core]
- :init-fns [app.core/main]
- :compiler-options {}}

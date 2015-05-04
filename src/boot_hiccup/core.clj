@@ -1,4 +1,4 @@
-(ns tvanhens.boot-hiccup
+(ns boot-hiccup.core
   {:boot/export-tasks true}
   (:require [boot.core       :as core]
             [clojure.java.io :as io]
@@ -23,7 +23,7 @@
                (str (:html5 page/doctype))))))
 
 (core/deftask hiccup
-  "Generates a html5 file from a clojure var."
+  "Generates an HTML5 file for every *.hiccup.html input file."
   []
   (let [tmp (core/temp-dir!)]
     (core/with-pre-wrap fileset
