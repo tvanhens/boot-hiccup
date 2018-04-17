@@ -25,14 +25,14 @@
 (core/deftask hiccup
   "Generates an HTML5 file for every *.hiccup.html input file."
   []
-  (let [tmp (core/temp-dir!)]
+  (let [tmp (core/tmp-dir!)]
     (core/with-pre-wrap fileset
       (core/empty-dir! tmp)
       (let [in-files (core/input-files fileset)
             hiccup-templates (core/by-ext [".hiccup.edn"] in-files)]
         (doseq [in hiccup-templates]
-          (let [in-file  (core/tmpfile in)
-                in-path  (core/tmppath in)
+          (let [in-file  (core/tmp-file in)
+                in-path  (core/tmp-path in)
                 out-path (hiccup-ext->html-ext in-path)
                 out-file (io/file tmp out-path)]
             (compile-template! in-file out-file)))
